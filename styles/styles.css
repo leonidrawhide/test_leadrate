@@ -1,0 +1,152 @@
+body {
+	background-color: #010920;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.main {
+	margin: 120px auto 0;
+	height: 467px;
+}
+
+.main__list {
+	width: 420px;
+	margin: 0 auto;
+}
+
+.main__list_furthest {
+	position: absolute;
+	margin-left: 4px;
+	background: #4f5565;
+	height: 85.23px;
+	max-width: 341.86px;
+	width: calc(100% - 90px);
+	border-radius: 20px;
+	transform: rotate(-4.48deg);
+}
+
+.main__list_middle {
+	position: absolute;
+	/* top: 15.75px; */
+	margin-top: 11px;
+	margin-left: 2px;
+	background: #31394D;
+	height: 67.97px;
+	max-width: 395.1px;
+	width: calc(100% - 50px);
+	border-radius: 20px;
+	transform: rotate(-2.32deg);
+}
+
+.main__list_front {
+	position: absolute;
+	margin-top: 26px;
+	background: #252e42;
+	max-width: 420px;
+	width: calc(100% - 30px);
+	height: 440px;
+	border-radius: 20px;
+}
+
+.main__list_front_name h1 {
+	position: absolute;
+	margin: 30px 0 0 30px;
+	color: #ffffff;
+}
+
+.main__list_front_button {
+	position: absolute;
+	right: 30px;
+	margin-top: 33.5px;
+	text-transform: uppercase;
+}
+
+.main__list_front_button button {
+	background: #FF8469;
+	border: none;
+	border-radius: 7px;
+	width: 54px;
+	height: 27px;
+	color: white;
+}
+
+.main__list_front_form {
+	position: absolute;
+	margin-top: 90px;
+	display: inline;
+	margin-left: 30px;
+}
+
+.main__list_front_form_block {
+	display: flex;
+	margin-bottom:20px;
+}
+
+.main__list_front_form_block_checkbox-wrapper {
+	margin: auto 15px auto 0;
+}
+
+.main__list_front_form_block_checkbox-wrapper_checkbox {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	opacity: 0;
+}
+
+.main__list_front_form_block_checkbox-wrapper_custom-checkbox {
+	width: 20px;
+	height: 20px;
+	background: #4f5565;
+	border-radius: 6px;
+}
+
+.main__list_front_form_block_title {
+	color: white;
+	font-size: 16px;
+}
+
+.main__list_front_form_block_description {
+	color: #4f5565;
+	font-size: 12px;
+}
+
+.main__list_front_form_block_checkbox-wrapper_checkbox:checked + .main__list_front_form_block_checkbox-wrapper_custom-checkbox {
+	background: #FF8469;
+}
+
+.main__list_front_form_block_checkbox-wrapper_checkbox:checked + .main__list_front_form_block_checkbox-wrapper_custom-checkbox::after {
+	content: "✓";
+	color: #ffffff;
+	margin-left: 5px;
+	font-size: 14px;
+}
+
+.footer {
+	margin: 30px auto;
+}
+
+.footer__author {
+	text-align: center;
+	color: #252e42;
+}
+
+
+@media screen and (max-width: 450px) {
+	.main {
+		margin: 55px 15px 0;
+	}
+}
+
+@media screen and (max-width: 273px) {
+	.main__list_front_button {
+		bottom: 20px;
+	}
+
+	.main__list_front {
+		height: 540px;
+	}
+
+	.main {
+		height: 540px;
+	}
+}
