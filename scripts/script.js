@@ -14,13 +14,17 @@ function randomNumber(min, max) {
  */
 
 function create(title, description, id, completed) {
+	let displayValue = `contents`
+
 	console.log(`%cTask № ${id+1} \nName        - ${title} \nDescription - ${description} \nCompleted   - ${completed}`, 
 	`background: black; color: green`)
 	if (title == undefined) title = "Lorem"
 	if (description == undefined) description = "ipsum"
 	if (id == undefined) id = 0
-	if (completed == true) completed = 'checked'
-	else completed = ''
+	if (completed == true) {
+		completed = 'checked'
+		displayValue = `none`
+	} else completed = ''
 	
 	return(
 		`<div class="main__list_front_form_block" id="form_block-`+ id + `">
@@ -32,7 +36,7 @@ function create(title, description, id, completed) {
 							<div id="check-` + id + `-title" class="main__list_front_form_block_title">`
 								+ title +
 							`</div>
-							<div id="check-` + id + `-description" class="main__list_front_form_block_description">
+							<div id="check-` + id + `-description" class="main__list_front_form_block_description" style="display: ` + displayValue + `;">
 								` + description + `
 							</div>
 						</label>
