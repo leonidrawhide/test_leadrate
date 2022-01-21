@@ -15,6 +15,8 @@ function randomNumber(min, max) {
 
 function create(title, description, id, completed) {
 	let displayValue = `contents`
+	let textDecor = 'initial'
+	let titleColor = 'white'
 
 	console.log(`%cTask № ${id+1} \nName        - ${title} \nDescription - ${description} \nCompleted   - ${completed}`, 
 	`background: black; color: green`)
@@ -24,6 +26,8 @@ function create(title, description, id, completed) {
 	if (completed == true) {
 		completed = 'checked'
 		displayValue = `none`
+		textDecor = 'line-through'
+		titleColor = 'gray'
 	} else completed = ''
 	
 	return(
@@ -33,7 +37,7 @@ function create(title, description, id, completed) {
 							<div class="main__list_front_form_block_checkbox-wrapper_custom-checkbox" id="custom-` + id + `"></div>
 						</div>
 						<label for="check-` + id + `" id="text-` + id + `" class="main__list_front_form_block_text-wrapper">
-							<div id="check-` + id + `-title" class="main__list_front_form_block_title">`
+							<div id="check-` + id + `-title" class="main__list_front_form_block_title" style="text-decoration: ` + textDecor + `; color: ` + titleColor + `;">`
 								+ title +
 							`</div>
 							<div id="check-` + id + `-description" class="main__list_front_form_block_description" style="display: ` + displayValue + `;">
@@ -55,10 +59,12 @@ function fetchTitles() {
 			return response.json();
 		})
 		.then((body) => {
+			let listOfTasks = '';
 			for (let i = 0; i < 4; i++) {
 				let k = randomNumber(0, 199)
-				document.getElementById('list-of-jobs').innerHTML += create(body[k].title, body[randomNumber(0, 199)].title, i, body[k].completed)
+				listOfTasks += create(body[k].title, body[randomNumber(0, 199)].title, i, body[k].completed)
 			}
+			document.getElementById('list-of-jobs').innerHTML = listOfTasks
 		})
 		.catch(function (err) {
 			console.log('error: ' + err);

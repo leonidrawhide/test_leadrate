@@ -1,5 +1,7 @@
+@import './variables';
+
 body {
-	background-color: #010920;
+	background-color: $backgroundColor;
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -14,44 +16,50 @@ body {
 	margin: 0 auto;
 }
 
-.main__list_furthest {
+@mixin blockValues() {
 	position: absolute;
+	border-radius: 20px;
+}
+
+.main__list_furthest {
+	@include blockValues();
+
 	margin-left: 4px;
-	background: #4f5565;
+	background: $furtherBlockColor;
 	height: 85.23px;
 	max-width: 341.86px;
 	width: calc(100% - 90px);
-	border-radius: 20px;
 	transform: rotate(-4.48deg);
 }
 
 .main__list_middle {
-	position: absolute;
-	/* top: 15.75px; */
+	@include blockValues();
+
 	margin-top: 11px;
 	margin-left: 2px;
-	background: #31394D;
+	background: $middleBlockColor;
 	height: 67.97px;
 	max-width: 395.1px;
 	width: calc(100% - 50px);
-	border-radius: 20px;
 	transform: rotate(-2.32deg);
 }
 
 .main__list_front {
-	position: absolute;
+	@include blockValues();
+
 	margin-top: 26px;
-	background: #252e42;
+	background: $frontBlockColor;
 	max-width: 420px;
 	width: calc(100% - 30px);
 	height: 440px;
-	border-radius: 20px;
 }
 
-.main__list_front_name h1 {
-	position: absolute;
-	margin: 30px 0 0 30px;
-	color: #ffffff;
+.main__list_front_name {
+	h1 {
+		position: absolute;
+		margin: 30px 0 0 30px;
+		color: white;
+	}
 }
 
 .main__list_front_button {
@@ -59,15 +67,15 @@ body {
 	right: 30px;
 	margin-top: 33.5px;
 	text-transform: uppercase;
-}
 
-.main__list_front_button button {
-	background: #FF8469;
-	border: none;
-	border-radius: 7px;
-	width: 54px;
-	height: 27px;
-	color: white;
+	button {
+		background: $lightOrange;
+		border: none;
+		border-radius: 7px;
+		width: 54px;
+		height: 27px;
+		color: white;
+	}
 }
 
 .main__list_front_form {
@@ -96,7 +104,7 @@ body {
 .main__list_front_form_block_checkbox-wrapper_custom-checkbox {
 	width: 20px;
 	height: 20px;
-	background: #4f5565;
+	background: $uncheckedColor;
 	border-radius: 6px;
 }
 
@@ -106,12 +114,12 @@ body {
 }
 
 .main__list_front_form_block_description {
-	color: #4f5565;
+	color: $uncheckedColor;
 	font-size: 12px;
 }
 
 .main__list_front_form_block_checkbox-wrapper_checkbox:checked + .main__list_front_form_block_checkbox-wrapper_custom-checkbox {
-	background: #FF8469;
+	background: $lightOrange;
 }
 
 .main__list_front_form_block_checkbox-wrapper_checkbox:checked + .main__list_front_form_block_checkbox-wrapper_custom-checkbox::after {
